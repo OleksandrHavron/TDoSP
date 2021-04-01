@@ -31,17 +31,17 @@
 - MySQL version >= 5.6
 - MySQL Connector/Python
   
-######Створення БД: 
+###### Створення БД: 
 
 	create database tdosp
-######Створення користувача:
+###### Створення користувача:
 
     create user 'django'@'localhost' identified by 'djangopswd';
     grant all privileges on tdosp.* to 'django'@'localhost';
     flush privileges;
 
 
-######Python:
+###### Python:
 	pip install mysqlclient==2.0.3
 ####
     python manage.py makemigrations
