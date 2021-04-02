@@ -26,26 +26,3 @@
 тоді замість 'python' вказується повний шлях до інтерпретатора Python:  
 
     /шлях_до_папки_Python/python.exe manage.py runserver
-
-### MySQL:
-- MySQL version >= 5.6
-- MySQL Connector/Python
-  
-###### Створення БД: 
-
-	create database tdosp
-###### Створення користувача:
-
-    create user 'django'@'localhost' identified by 'djangopswd';
-    grant all privileges on tdosp.* to 'django'@'localhost';
-    flush privileges;
-
-
-###### Python:
-	pip install mysqlclient==2.0.3
-####
-    python manage.py makemigrations
-    python manage.py migrate
-            
-
-
