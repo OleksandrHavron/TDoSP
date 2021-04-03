@@ -26,3 +26,8 @@
 тоді замість 'python' вказується повний шлях до інтерпретатора Python:  
 
     /шлях_до_папки_Python/python.exe manage.py runserver
+
+### БД
+
+    python manage.py makemigrations
+    python manage.py migrate
