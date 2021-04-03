@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Category, App
 
 
 def home_page(request):
@@ -6,7 +7,11 @@ def home_page(request):
 
 
 def app_list(request):
-    return render(request, 'app_list.html')
+    apps = App.objects.all()
+
+    return render(request, 'app_list.html', {
+        'apps': apps,
+    })
 
 
 def app_page(request):

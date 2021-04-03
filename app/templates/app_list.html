@@ -5,6 +5,10 @@
 {% endblock %}
 
 {% block content %}
-    {% include "app.html" %}
+
+    {% for app in apps %}
+
+        {% include "app.html" %}
+    {% endfor %}
 
 {% endblock %}
