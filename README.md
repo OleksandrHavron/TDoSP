@@ -13,7 +13,7 @@
     Версія Django == 3.1.7
 
 ###### Встановлення:
-В командній строці Windows виконайте команду:  
+В командній строці Windows виконати команду:  
     
     pip install Django==3.1.7
 
@@ -25,7 +25,7 @@
 якщо при встановленні не поставили галочку біля пункта Add Python 3.9.1 to PATH
 тоді замість 'python' вказується повний шлях до інтерпретатора Python:  
 
-    /шлях_до_папки_Python/python.exe manage.py runserver'
-            
+    /шлях_до_папки_Python/python.exe manage.py runserver
+
 
 

@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+{% load static %}
+{% block title %}
+    App list
+{% endblock %}
+
+{% block content %}
+
+    {% for app in apps %}
+
+        {% include "app.html" %}
+    {% endfor %}
+
+{% endblock %}
