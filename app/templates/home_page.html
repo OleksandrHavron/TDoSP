@@ -5,7 +5,14 @@
 {% endblock %}
 
 {% block content %}
-    {% include "category.html" %}
-    {% include "app.html" %}
+    {% for app in apps %}
+
+        {% include "category.html" %}
+    {% endfor %}
+
+    {% for app in apps %}
+
+        {% include "app.html" %}
+    {% endfor %}
      <h1>Home page text</h1>
 {% endblock %}

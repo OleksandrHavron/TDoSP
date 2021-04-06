@@ -5,5 +5,8 @@
 {% endblock %}
 
 {% block content %}
+
+    {% for category in categories %}
     {% include 'category.html' %}
+    {% endfor %}
 {% endblock %}
