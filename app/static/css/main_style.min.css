@@ -15386,3 +15386,142 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.bs {
+  border: 1px solid red;
+}
+
+.bs-g {
+  border: 1px solid green;
+}
+
+.bs-b {
+  border: 1px solid blue;
+}
+
+.bs-y {
+  border: 1px solid yellow;
+}
+
+.bs-br {
+  border: 1px solid saddlebrown;
+}
+
+.bs-bold {
+  border: 3px solid black;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.page {
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  min-height: 100vh;
+  height: 100%;
+}
+
+main {
+  display: block;
+  height: 100%;
+}
+
+.content {
+  padding: 0 10px 0 10px;
+}
+
+.header {
+  background-color: #007bff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 4px 10px;
+}
+
+.header__logo {
+  color: #ffffff;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.header__link {
+  display: block;
+  color: #ffffff;
+}
+
+.header__link_active {
+  border: 2px solid #ffffff;
+  padding: 3px 10px;
+}
+
+footer {
+  margin-top: auto;
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  footer {
+    margin-top: 100vh;
+  }
+}
+
+.footer {
+  background: #343a40;
+}
+
+.back-video {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.back-video__media {
+  width: 100vw;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

@@ -1,0 +1,17 @@
+//footer tag
+footer {
+  margin-top: auto;
+}
+
+//only for IE 10-11
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  footer {
+    margin-top: 100vh;
+  }
+}
+
+
+//footer class
+.footer {
+  background: $main_color_dark;
+}

@@ -8,20 +8,46 @@
     <link rel="stylesheet" href='{% static "css/main_style.min.css" %}'>
 </head>
 <body>
+<!--<div class="page">-->
 {% block header %}
-<div class="container">
-    <h1 class="text-primary">Header</h1>
-</div>
+<header>
+    <div class="container-xxl">
+        <div class="row">
+            <div class="col-12">
+                <div class="header content">
+                    <div class="header__logo">Logo</div>
+                    <div>
+                        <a href="#" class="header__link header__link_active">Головна</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 {% endblock %}
 
-{% block content %}
-<h2>Content</h2>
-{% endblock %}
+
+<main>
+    {% block content %}
+
+    {% endblock %}
+</main>
 
 {% block footer %}
-<h1>Footer</h1>
+<footer>
+    <div class="container-xxl">
+        <div class="row">
+            <div class="col">
+                <div class="footer content">
+                    <h3>Footer text</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 {% endblock %}
-
+<!--</div>-->
 <script src='{% static "js/minimized/main_script.min.js" %}'></script>
+
 </body>
 </html>
