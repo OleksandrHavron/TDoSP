@@ -6,7 +6,7 @@ footer {
 //only for IE 10-11
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   footer {
-    margin-top: 100vh;
+    margin-top: 100%;
   }
 }
 
@@ -14,4 +14,13 @@ footer {
 //footer class
 .footer {
   background: $main_color_dark;
+  @include typical_flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: $sm_shadow;
+
+  &__text {
+    color: $main_color_white;
+    line-height: 50px;
+  }
 }

@@ -8,46 +8,35 @@
     <link rel="stylesheet" href='{% static "css/main_style.min.css" %}'>
 </head>
 <body>
-<!--<div class="page">-->
-{% block header %}
-<header>
-    <div class="container-xxl">
-        <div class="row">
-            <div class="col-12">
-                <div class="header content">
-                    <div class="header__logo">Logo</div>
-                    <div>
-                        <a href="#" class="header__link header__link_active">Головна</a>
-                    </div>
-                </div>
+<div class="page">
+    {% block header %}
+    <header>
+        <div class="header content">
+            <div class="header__logo">Logo</div>
+            <div class="header__wrapper">
+                <a href="#" class="header__link header__link_active">Головна</a>
+                <a href="{% url 'categories'%}" class="header__link">Категорії</a>
             </div>
         </div>
-    </div>
-</header>
-{% endblock %}
-
-
-<main>
-    {% block content %}
-
+    </header>
     {% endblock %}
-</main>
 
-{% block footer %}
-<footer>
-    <div class="container-xxl">
-        <div class="row">
-            <div class="col">
-                <div class="footer content">
-                    <h3>Footer text</h3>
-                </div>
-            </div>
+
+    <main>
+        {% block content %}
+
+        {% endblock %}
+    </main>
+
+    {% block footer %}
+    <footer>
+        <div class="footer content">
+            <p class="footer__text"><small>Copyright 2021</small></p>
         </div>
-    </div>
-</footer>
-{% endblock %}
-<!--</div>-->
-<script src='{% static "js/minimized/main_script.min.js" %}'></script>
+    </footer>
+    {% endblock %}
+</div>
 
+<script src='{% static "js/minimized/main_script.min.js" %}'></script>
 </body>
 </html>
