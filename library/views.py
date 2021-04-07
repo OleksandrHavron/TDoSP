@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Category, App
-from .services import get_all_apps
+from .services import get_all_apps, get_all_categories
 
 
 def home_page(request):
@@ -20,4 +20,8 @@ def app_page(request):
 
 
 def category_list(request):
-    return render(request, 'category_list.html')
+    categories = get_all_categories()
+
+    return render(request, 'category_list.html', {
+        'categories': categories
+    })

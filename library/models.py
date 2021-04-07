@@ -4,7 +4,7 @@ from django.db import models
 class Category(models.Model):
     name = models.CharField(max_length=55)
     description = models.TextField()
-    image = models.ImageField(upload_to='categories')
+    image = models.ImageField(upload_to='categories', blank=True)
 
     class Meta:
         verbose_name = 'Категорія'
@@ -14,11 +14,26 @@ class Category(models.Model):
         return self.name
 
 
+class SubCategory(models.Model):
+    name = models.CharField(max_length=55)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='subcategories')
+    description = models.TextField()
+    image = models.ImageField(upload_to='apps/', blank=True)
+
+    class Meta:
+        verbose_name = 'Підкатегорія'
+        verbose_name_plural = 'Підкатегорії'
+
+    def __str__(self):
+        return self.name
+
+
 class App(models.Model):
     name = models.CharField(max_length=55)
     description = models.TextField()
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='apps')
-    image = models.ImageField(upload_to='apps/')
+    subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE, related_name='apps')
+    file = models.FileField(upload_to='apps/files', default=None, blank=True)
+    image = models.ImageField(upload_to='apps/images', blank=True)
 
     class Meta:
         verbose_name = 'Додаток'
@@ -26,3 +41,5 @@ class App(models.Model):
 
     def __str__(self):
         return self.name
+
+

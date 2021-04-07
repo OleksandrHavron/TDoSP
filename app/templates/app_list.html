@@ -5,10 +5,17 @@
 {% endblock %}
 
 {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="categories-wrapper">
+                {% for app in apps %}
 
-    {% for app in apps %}
-
-        {% include "app.html" %}
-    {% endfor %}
+                    {% include "app.html" %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
