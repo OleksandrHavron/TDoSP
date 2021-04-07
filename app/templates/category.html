@@ -13,9 +13,9 @@
         <p>{{ category.description }}</p>
     </div>
     <div class="small-categories">
-{#        {% for subcategory in category.subcategories %}#}
-{#            <a href="#">{{ subcategory.name }}</a>#}
-{#        {% endfor %}#}
+        {% for subcategory in category.get_all_subcategories %}
+            <a href="{{subcategory.get_absolute_url}}">{{ subcategory.name }}</a>
+        {% endfor %}
 
     </div>
 </div>

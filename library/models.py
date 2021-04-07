@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.urls import reverse
 
 class Category(models.Model):
     name = models.CharField(max_length=55)
@@ -14,6 +14,10 @@ class Category(models.Model):
         return self.name
 
 
+    def get_all_subcategories(self):
+            subcategories = SubCategory.objects.filter(category=self.pk)
+            return subcategories
+
 class SubCategory(models.Model):
     name = models.CharField(max_length=55)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='subcategories')
@@ -23,6 +27,10 @@ class SubCategory(models.Model):
     class Meta:
         verbose_name = 'Підкатегорія'
         verbose_name_plural = 'Підкатегорії'
+
+    def get_absolute_url(self):
+        return reverse('app_list_with_params', kwargs = {"id_subcategories": self.pk})
+
 
     def __str__(self):
         return self.name
