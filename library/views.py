@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Category, App
+from .models import Category, App, SubCategory
 from .services import get_all_apps, get_all_categories, get_apps_in_subcategory
 
 
@@ -16,10 +16,10 @@ def app_list(request):
 
 
 def app_list_with_params(request, id_subcategories):
-    apps = get_apps_in_subcategory(id_subcategories)
+    subcategories = get_apps_in_subcategory(id_subcategories)
     
     return render(request, 'app_list.html', {
-            'apps': apps,
+            'sabcategories': subcategories,
         })
 
 

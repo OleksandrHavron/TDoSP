@@ -1,4 +1,4 @@
-from .models import Category, App
+from .models import Category, App, SubCategory
 
 
 def get_all_apps():
@@ -9,5 +9,9 @@ def get_all_categories():
     return Category.objects.all()
 
 
-def get_apps_in_subcategory(id_subcategory):
-    return App.objects.filter(subcategory = id_subcategory)
+def get_apps_in_subcategory(slug_subcategory):
+    return SubCategory.objects.filter(slug = slug_subcategory)
+
+
+def get_selected_app(slug_app):
+    return App.objects.filter(slug = slug_app)
