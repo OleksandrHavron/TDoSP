@@ -1,10 +1,10 @@
 {% load static %}
-
-{{ app.name }}<br>                                            {# Назва програми #}
-{{ app.category }}<br>                                        {# Категорія #}
-{{ app.description }}<br>
+<a href="{{ app.get_absolute_url }}">
+{{ app.name }}<br>                                                              {# Назва програми #}
+{{ app.subcategory }}<br>                                                       {# Категорія #}
+{{ app.description }}<br>                                                       {# Описання програми #}
 {% if app.image %}
 
-    <img src="{{ app.image.url }}" width="100" height="70" alt="Image"><br>   {# Зображення #}
+    <img src="{{ app.image.url }}" width="100" height="70" alt="Image"><br>     {# Зображення #}
 {% endif %}
-                                     {# Описання програми #}
+</a>

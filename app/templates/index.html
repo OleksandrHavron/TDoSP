@@ -9,17 +9,22 @@
 </head>
 <body>
 <div class="page">
-    {% block header %}
+
     <header>
-        <div class="header content">
-            <div class="header__logo">Logo</div>
-            <div class="header__wrapper">
-                <a href="{% url 'home_page' %}" class="header__link header__link_active">Головна</a>
-                <a href="{% url 'categories'%}" class="header__link">Категорії</a>
+        {% block header %}
+            <div class="header content">
+                <div class="header__logo">Logo</div>
+                <div class="header__wrapper">
+                    <a href="{% url 'home_page' %}" class="header__link header__link_active">Головна</a>
+                    <a href="{% url 'categories'%}" class="header__link">Категорії</a>
+                    {% if request.user.is_authenticated %}
+                        <a href="/admin">Admin</a>
+                    {% endif %}
+                </div>
             </div>
-        </div>
+        {% endblock %}
     </header>
-    {% endblock %}
+
 
 
     <main>
@@ -28,13 +33,14 @@
         {% endblock %}
     </main>
 
-    {% block footer %}
+
     <footer>
-        <div class="footer content">
-            <p class="footer__text"><small>Copyright 2021</small></p>
-        </div>
+        {% block footer %}
+            <div class="footer content">
+                <p class="footer__text"><small>Copyright 2021</small></p>
+            </div>
+        {% endblock %}
     </footer>
-    {% endblock %}
 </div>
 
 <script src='{% static "js/minimized/main_script.min.js" %}'></script>

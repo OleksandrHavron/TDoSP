@@ -1,30 +1,10 @@
 from django.shortcuts import render
-from .models import Category, App, SubCategory
-from .services import get_all_apps, get_all_categories, get_apps_in_subcategory
+from .services import get_all_apps, get_all_categories, get_apps_by_subcategory, \
+    get_app_by_slug
 
 
 def home_page(request):
     return render(request, 'home_page.html')
-
-
-def app_list(request):
-    apps = get_all_apps()
-
-    return render(request, 'app_list.html', {
-        'apps': apps,
-    })
-
-
-def app_list_with_params(request, id_subcategories):
-    subcategories = get_apps_in_subcategory(id_subcategories)
-    
-    return render(request, 'app_list.html', {
-            'sabcategories': subcategories,
-        })
-
-
-def app_page(request):
-    return render(request, 'app_page.html')
 
 
 def category_list(request):
@@ -32,4 +12,20 @@ def category_list(request):
 
     return render(request, 'category_list.html', {
         'categories': categories
+    })
+
+
+def app_list_by_subcategory(request, subcategory_slug):
+    apps = get_apps_by_subcategory(subcategory_slug)
+
+    return render(request, 'app_list.html', {
+            'apps': apps,
+        })
+
+
+def app_page(request, app_slug):
+    app = get_app_by_slug(app_slug)
+
+    return render(request, 'app_page.html', {
+        'app': app
     })
