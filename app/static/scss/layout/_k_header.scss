@@ -1,0 +1,37 @@
+.header {
+  background-color: $main_color;
+  @include typical_flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 10px;
+
+  &__logo {
+    color: $main_color_white;
+
+    font: {
+      size: 35px;
+      weight: bold;
+    }
+  }
+
+  &__wrapper {
+    @include typical_flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__link {
+    display: block;
+    color: $main_color_white;
+
+
+    &_active {
+      border: 2px solid $main_color_white;
+      padding: 3px 10px;
+    }
+  }
+
+  &__link:not(:last-child) {
+    margin-right: 10px;
+  }
+}

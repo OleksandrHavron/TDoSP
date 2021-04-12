@@ -1,9 +1,21 @@
 {% extends 'index.html' %}
 {% load static %}
 {% block title %}
-    Category list
+Category list
 {% endblock %}
 
 {% block content %}
-    {% include 'category.html' %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="categories-wrapper">
+                {% for category in categories %}
+                    {% include 'category.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
 {% endblock %}

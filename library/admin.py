@@ -1,3 +1,18 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Category, SubCategory, App
+
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("name",)}
+
+
+@admin.register(SubCategory)
+class SubCategoryAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("name",)}
+
+
+@admin.register(App)
+class AppAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("name",)}
