@@ -3,7 +3,7 @@
 <div class="big-category">
     <div class="big-category__wrapper">
         <div class="big-category__img-block">
-            <img src="../../media/caterory_imgs/security_icon.png" class="big-category__img" alt="error">
+            <img src="{% if category.image %}{{ category.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" class="big-category__img" alt="error">
         </div>
         <div class="big-category__title">
             <h2>{{ category.name }}</h2>
