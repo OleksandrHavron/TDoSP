@@ -6,11 +6,10 @@
   padding: 4px 10px;
 
   &__logo {
-    color: $main_color_white;
-
-    font: {
-      size: 35px;
-      weight: bold;
+    img {
+      display: block;
+      width: 102px;
+      height: auto;
     }
   }
 

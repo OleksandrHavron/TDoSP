@@ -15478,10 +15478,10 @@ main {
   padding: 4px 10px;
 }
 
-.header__logo {
-  color: #ffffff;
-  font-size: 35px;
-  font-weight: bold;
+.header__logo img {
+  display: block;
+  width: 102px;
+  height: auto;
 }
 
 .header__wrapper {
