@@ -15749,12 +15749,14 @@ footer {
           align-items: center;
   border-bottom: 3px solid #007bff;
   padding-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .app-list__right {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  margin-left: 20px;
 }
 
 .app-list__right:nth-child {
@@ -15772,7 +15774,8 @@ footer {
   color: #ffffff;
   font-size: 16px;
   line-height: 18px;
-  margin-bottom: 5px;
+  margin-bottom: 7.5px;
+  margin-top: 5px;
 }
 
 .app-list__data {
@@ -15780,4 +15783,52 @@ footer {
   line-height: 11px;
   color: #ffffff;
   float: right;
+}
+
+.app {
+  max-width: 895px;
+  padding: 30px;
+  background-color: #343434;
+  -webkit-box-shadow: 0px 0px 20px black;
+          box-shadow: 0px 0px 20px black;
+  margin: 0 auto;
+}
+
+.app__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+}
+
+.app__logo img {
+  display: block;
+  width: 60px;
+  height: 60px;
+}
+
+.app__title-text {
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 37px;
+  color: #ffffff;
+  margin-left: 20px;
+}
+
+.app__description {
+  margin-bottom: 15px;
+}
+
+.app__description p {
+  font-size: 16px;
+  line-height: 20px;
+  text-align: justify;
+  color: #ffffff;
 }

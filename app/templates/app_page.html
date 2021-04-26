@@ -1,14 +1,58 @@
 {% extends "index.html" %}
 {% load static %}
 {% block title %}
-    {{ app.name }}
+{{ app.name }}
 {% endblock %}
 {% block content %}
 
-    {{ app.name }}
-    {{ app.subcategory }}
-    <img src="{% if app.image %}{{ app.image.url }}{% else %}{{ {% static 'img/no_image.png' %}{% endif %}" width="100" height="70" alt="Image"><br>
-    {{ app.description }}
-    {{ app.file }}
+{{ app.name }}
+{{ app.subcategory }}
+<!--    <img src="{% if app.image %}{{ app.image.url }}{% else %}{{ {% static 'img/no_image.png' %}{% endif %}" width="100" height="70" alt="Image"><br>-->
+{{ app.description }}
+{{ app.file }}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="content-wrapper">
+                <div class="app">
+                    <div class="app__title">
+                        <div class="app__logo">
+                            <img src="{% static '/companies_logo/outpost_security_suite_free_icon.png' %}" alt="error">
+                        </div>
+                        <div class="app__title-text">
+                            <h1>Outpost Security Suite Free</h1>
+                        </div>
+                    </div>
+
+                    <div class="app__description">
+                        <p>
+                            Outpost Security Suite Free — безкоштовний пакет для комплексного захисту комп’ютера від
+                            загроз, які можуть виходити з локальної мережі та Інтернету. Включає в себе фаєрвол,
+                            антивірус з проактивним захистом, антишпигун і антиспам. Крім того, на відміну від інших
+                            проактивних рішень, які лише захищають від зараження, Outpost Free справляється і з
+                            усуненням наслідків дій шкідливих програм.
+
+                            Незалежно від рівня вашої підготовки, Outpost Security Suite Free задовольнить ваші потреби
+                            в захисті, автоматично оновлюючи як антивірусні бази, так і політики роботи з новими
+                            програмами з системи Agnitum ImproveNet. Ця унікальна система автоматично настроює і
+                            застосовує правила, які керують доступом ПК в Інтернет на основі розроблених у Agnitum
+                            безпечних правил роботи в Мережі.
+                        </p>
+                    </div>
+
+                    <div class="app__slider">
+                        <div class="app__slider-wrapper">
+                            <div class="app__slider-item">
+                                <img src="#" alt="error">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 {% endblock %}
