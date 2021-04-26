@@ -1,0 +1,79 @@
+.app-list {
+  max-width: 895px;
+  padding:30px;
+  background-color: $main_color_liter-dark;
+  box-shadow: $mid_shadow;
+  margin: 0 auto;
+
+  &__wrapper{
+    @include typical_flex;
+  }
+
+  &__title{
+    margin-bottom: 17px;
+  }
+
+  &__svg {
+    width: 45px;
+    height: 45px;
+
+    &-path {
+      fill: $main_color_white;
+    }
+  }
+
+  &__title-text{
+    margin-left: 24px;
+    h1{
+      color:$main_color_white;
+      text-transform: uppercase;
+    }
+  }
+
+  &__description{
+    font-size: 16px;
+    line-height: 20px;
+    color:$main_color_white;
+    margin-bottom: 63px;
+  }
+
+  &__comp-logo{
+    width:60px;
+    height: 60px;
+  }
+
+  &__item{
+    @include typical_flex;
+    align-items: center;
+    border-bottom: 3px solid $main_color;
+    padding-bottom: 5px;
+  }
+  &__right{
+    flex-grow: 1;
+  }
+
+  &__right:nth-child{
+    display: block;
+  }
+
+  &__link-toApp{
+    color:$main_color;
+    font-size: 20px;
+    line-height: 23px;
+    margin-bottom: 5px;
+  }
+  &__short-text{
+    color:$main_color_white;
+    font-size: 16px;
+    line-height: 18px;
+    margin-bottom: 5px;
+  }
+  &__data{
+    font-size: 10px;
+    line-height: 11px;
+    color:$main_color_white;
+    float: right;
+  }
+
+
+}
