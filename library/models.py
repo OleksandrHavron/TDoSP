@@ -36,6 +36,10 @@ class Category(models.Model):
     def get_all_subcategories(self):
         return SubCategory.objects.filter(category=self.pk)
 
+    def get_svg_icon(self):
+        with open(self.svg_icon.path) as svg_file:
+            return svg_file.read()
+
 
 class SubCategory(models.Model):
     name = models.CharField(max_length=55)
@@ -55,6 +59,10 @@ class SubCategory(models.Model):
     def get_all_apps(self):
         apps = App.objects.filter(subcategory=self.pk)
         return apps
+
+    def get_svg_icon(self):
+        with open(self.svg_icon.path) as svg_file:
+            return svg_file.read()
 
     def __str__(self):
         return self.name

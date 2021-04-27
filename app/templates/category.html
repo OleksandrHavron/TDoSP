@@ -3,6 +3,9 @@
 <div class="big-category">
     <div class="big-category__wrapper">
         <div class="big-category__img-block">
+            {% autoescape off %}
+                {{ category.get_svg_icon }}
+            {% endautoescape %}
             <img src="{% if category.image %}{{ category.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" class="big-category__img" alt="error">
         </div>
         <div class="big-category__title">
@@ -14,7 +17,13 @@
     </div>
     <div class="small-categories">
         {% for subcategory in category.get_all_subcategories %}
-            <a href="{{subcategory.get_absolute_url}}">{{ subcategory.name }}</a>
+
+            <a href="{{subcategory.get_absolute_url}}">
+                {% autoescape off %}
+                {{ subcategory.get_svg_icon }}
+                {% endautoescape %}
+                {{ subcategory.name }}
+            </a>
         {% endfor %}
 
     </div>
