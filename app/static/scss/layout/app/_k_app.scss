@@ -5,7 +5,7 @@
   box-shadow: $mid_shadow;
   margin: 0 auto;
 
-  &__title{
+  &__title {
     @include typical_flex;
     align-items: center;
     margin-bottom: 20px;
@@ -18,20 +18,129 @@
       height: 60px;
     }
   }
-  &__title-text{
+
+  &__title-text {
     font-weight: bold;
     font-size: 32px;
     line-height: 37px;
-    color:$main_color_white;
+    color: $main_color_white;
     margin-left: 20px;
   }
-  &__description{
+
+  &__description {
     margin-bottom: 15px;
-    p{
+
+    p {
       font-size: 16px;
       line-height: 20px;
       text-align: justify;
-      color:$main_color_white;
+      color: $main_color_white;
     }
   }
+
+  &__slider {
+    margin-bottom: 15px;
+    //overflow: hidden;
+    &-wrapper {
+      //display: flex;
+      //flex-flow: row nowrap;
+    }
+
+    &-item {
+      display: block;
+      background: $main_color;
+
+      //flex:0 0 300px;
+      height: 150px;
+      overflow: hidden;
+      border-right: 2px solid $main_color_white;
+      color: $main_color_white;
+      &:nth-child(1){
+        width:300px;
+        //float:left;
+      }
+      &:nth-child(2){
+        width:100px;
+        //float:left;
+      }
+      &:nth-child(3){
+        width:50px;
+        //float:left;
+      }
+      &:nth-child(4){
+        width:400px;
+        //float:left;
+      }
+      &:nth-child(5){
+        width:250px;
+        //float:left;
+      }
+      &:nth-child(6){
+        width:50px;
+        //float:left;
+      }
+      img{
+        display: block;
+        max-height: 150px;
+      }
+    }
+
+  }
+
+  &__btn {
+    width: 100%;
+    margin-top: 35px;
+    margin-bottom: 5px;
+
+    &-button {
+      display: block;
+      max-width: 175px;
+      max-width: max-content;
+      margin: 0 auto;
+      background-color: $main_color;
+      color: $main_color_white;
+      padding: 7px 40px;
+      border-radius: 5px;
+    }
+  }
+}
+
+.specs {
+  margin-bottom: 20px;
+
+  &__title {
+    margin-bottom: 10px;
+
+    h5 {
+      color: $main_color_white;
+      font-size: 20px;
+      line-height: 23px;
+      font-weight: normal;
+    }
+  }
+
+  &__text {
+    p {
+      color: $main_color_white;
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+}
+
+.table-specs {
+
+  .row:nth-of-type(odd) {
+    background-color: $main_color_dark;
+  }
+
+  &__item {
+    color: $main_color_white;
+    padding: 5px;
+  }
+
+  //row{
+  //  //background-color: red;
+  //  border:2px solid red;
+  //}
 }
