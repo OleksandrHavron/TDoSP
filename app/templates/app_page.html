@@ -149,7 +149,9 @@
                     <!--                    //Таблиця-->
 
                     <div class="app__btn">
-                        <a href="#" class="app__btn-button" download>Завантажити</a>
+                        {% if app.file %}
+                            <a href="{{ app.file.url }}" class="app__btn-button" download>Завантажити</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>

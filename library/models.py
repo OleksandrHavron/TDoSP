@@ -23,8 +23,8 @@ class Category(models.Model):
     name = models.CharField(max_length=55)
     description = models.TextField()
     image = models.ImageField(upload_to='categories/images', blank=True)
-    slug = models.SlugField(verbose_name='slug', max_length=50, unique=True, blank=False)
-    svg_icon = models.FileField(upload_to='categories/svg_icons', blank=True, validators=[is_svg])
+    slug = models.SlugField(verbose_name='slug', max_length=50, unique=True)
+    svg_icon = models.FileField(upload_to='categories/svg_icons')
 
     class Meta:
         verbose_name = 'Категорія'
@@ -46,8 +46,8 @@ class SubCategory(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='subcategories')
     description = models.TextField()
     image = models.ImageField(upload_to='subcategories/images/', blank=True)
-    slug = models.SlugField(verbose_name='slug', max_length=50, unique=True, blank=False)
-    svg_icon = models.FileField(upload_to='subcategories/svg_icons', blank=True)
+    slug = models.SlugField(verbose_name='slug', max_length=50, unique=True)
+    svg_icon = models.FileField(upload_to='subcategories/svg_icons')
 
     class Meta:
         verbose_name = 'Підкатегорія'
@@ -72,9 +72,9 @@ class App(models.Model):
     name = models.CharField(max_length=55)
     description = models.TextField()
     subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE, related_name='apps')
-    file = models.FileField(upload_to='apps/files', default=None, blank=True)
+    file = models.FileField(upload_to='apps/files')
     image = models.ImageField(upload_to='apps/images', blank=True)
-    slug = models.SlugField(verbose_name='slug', max_length=50, unique=True, blank=False)
+    slug = models.SlugField(verbose_name='slug', max_length=50, unique=True)
 
     class Meta:
         verbose_name = 'Додаток'
