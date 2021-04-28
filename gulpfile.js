@@ -63,7 +63,8 @@ function scripts() {
         'node_modules/jquery/dist/jquery.slim.js',
         'node_modules/bootstrap/dist/js/bootstrap.bundle.js',
         'node_modules/bootstrap/dist/js/bootstrap.js',
-        'app/static/js/main_script.js'
+        'app/static/js/main_script.js',
+        'app/static/js/korniichuk_scripts/app_slider.js'
     ])
         .pipe(concat('main_script.min.js'))
         .pipe(plumber())
