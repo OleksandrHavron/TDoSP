@@ -42,30 +42,54 @@
   &__slider {
     margin-bottom: 15px;
     overflow: hidden;
+    position: relative;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 72px;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      bottom: 0px;
+      background: linear-gradient(90deg, #343434 0%, rgba(196, 196, 196, 0) 87.5%);
+      z-index: 1;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      width: 72px;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      background: linear-gradient(90deg, #343434 0%, rgba(196, 196, 196, 0) 87.5%);
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+      z-index: 1;
+    }
+
     &-wrapper {
       display: flex;
       flex-flow: row nowrap;
-      //transform: translateX(200px);
+      position: relative;
     }
 
     &-item {
       display: block;
-      //background: $main_color;
       align-self: stretch;
       flex-shrink: 0;
       height: 150px;
       overflow: hidden;
-      //border-right: 2px solid $main_color_white;
       color: $main_color_white;
 
-      img{
+      img {
         display: block;
-        //min-width:100%;
-
         height: 100%;
-        min-width:auto;
+        min-width: auto;
       }
-      &:not(:first-child){
+
+      &:not(:first-child) {
         padding-left: 10px;
       }
     }

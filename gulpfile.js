@@ -72,7 +72,7 @@ function scripts() {
             presets: ['@babel/preset-env'],
             plugins: ["@babel/plugin-proposal-class-properties"]
         }))
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(gulp.dest('app/static/js/minimized'))
         .pipe(browserSync.reload({
             stream: true
