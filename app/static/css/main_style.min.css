@@ -15636,16 +15636,20 @@ footer {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
   margin-bottom: 10px;
 }
 
 .big-category__title {
   margin-left: 25px;
+}
+
+.big-category__title h2 {
+  text-align: start;
 }
 
 .big-category__description {
@@ -15663,17 +15667,13 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .big-category__img {
-  max-width: 100%;
+  max-width: 45px;
   height: auto;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
 }
 
 .small-categories a {
@@ -15749,7 +15749,7 @@ footer {
           align-items: center;
   border-bottom: 3px solid #007bff;
   padding-bottom: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .app-list__right {
@@ -15783,6 +15783,56 @@ footer {
   line-height: 11px;
   color: #ffffff;
   float: right;
+}
+
+@media (max-width: 991px) {
+  .app-list__left {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .app-list__right {
+    display: block;
+    width: 100%;
+    margin-left: 0px;
+    text-align: center;
+  }
+  .app-list__comp-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .app-list {
+    width: 100%;
+    padding: 30px 15px;
+  }
+  .app-list__logo {
+    display: block;
+    width: 100%;
+  }
+  .app-list__title-text {
+    display: block;
+    width: 100%;
+  }
+  .app-list__title-text {
+    margin-left: 0px;
+    text-align: center;
+  }
+  .app-list__title-text h1 {
+    font-size: 25px;
+  }
+  .app-list__svg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+  .app-list__description {
+    text-align: center;
+  }
 }
 
 .app {
@@ -15951,4 +16001,25 @@ footer {
 .table-specs__item {
   color: #ffffff;
   padding: 5px;
+}
+
+@media (max-width: 767px) {
+  .app {
+    padding: 30px 15px;
+  }
+  .app__logo {
+    width: 100%;
+  }
+  .app__logo img {
+    display: block;
+    margin: 0px auto 20px auto;
+  }
+  .app__title-text {
+    width: 100%;
+    margin-left: 0px;
+    text-align: center;
+  }
+  .app__title-text h1 {
+    font-size: 25px;
+  }
 }

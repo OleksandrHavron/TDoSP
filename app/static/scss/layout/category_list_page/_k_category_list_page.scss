@@ -13,13 +13,17 @@
   }
 
   &__wrapper {
-    @include typical_flex;
-    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
     margin-bottom: 10px;
   }
 
   &__title {
     margin-left: 25px;
+    h2{
+      text-align: start;
+    }
   }
 
   &__description {
@@ -31,13 +35,12 @@
     max-height: 45px;
     overflow: hidden;
     @include typical_flex;
-    justify-content: center;
-    align-items: center;
   }
 
   &__img {
-    max-width: 100%;
+    max-width: 45px;
     height: auto;
+    align-self: flex-start;
   }
 
 }
