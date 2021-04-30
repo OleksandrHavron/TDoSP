@@ -24,7 +24,7 @@ class Category(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='categories/images', blank=True)
     slug = models.SlugField(verbose_name='slug', max_length=50, unique=True)
-    svg_icon = models.FileField(upload_to='categories/svg_icons')
+    svg_icon = models.FileField(upload_to='categories/svg_icons', blank=True)
 
     class Meta:
         verbose_name = 'Категорія'
@@ -47,7 +47,7 @@ class SubCategory(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='subcategories/images/', blank=True)
     slug = models.SlugField(verbose_name='slug', max_length=50, unique=True)
-    svg_icon = models.FileField(upload_to='subcategories/svg_icons')
+    svg_icon = models.FileField(upload_to='subcategories/svg_icons', blank =True)
 
     class Meta:
         verbose_name = 'Підкатегорія'
