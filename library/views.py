@@ -4,14 +4,19 @@ from .services import get_all_apps, get_all_categories, get_apps_by_subcategory,
 
 
 def home_page(request):
-    return render(request, 'home_page.html')
+    page_selected = "home"
+    return render(request, 'home_page.html', {
+           'page_selected': page_selected,
+        })
 
 
 def category_list(request):
+    page_selected = "category"
     categories = get_all_categories()
 
     return render(request, 'category_list.html', {
-        'categories': categories
+        'categories': categories,
+        'page_selected' : page_selected,
     })
 
 
