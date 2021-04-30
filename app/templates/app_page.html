@@ -41,39 +41,36 @@
                         </p>
                     </div>
 
-                    <div class="app__slider bs">
-<!--                        <div class="app__slider-wrapper">-->
-<!--                            <div class="app__slider-item">-->
-<!--&lt;!&ndash;                                <img src="{% static '/slider_test_imgs/1980x800.png' %}" class="bs-bold" alt="error">&ndash;&gt;-->
-<!--                            </div>-->
-<!--                            <div class="app__slider-item">-->
-<!--                                &lt;!&ndash;                                <img src="#" alt="error">&ndash;&gt;-->
-<!--                                2-->
+                    <div class="app__slider" id="app_slider">
+                        <div class="app__slider-wrapper " id="app_wrapper">
+                            <!--                            Картинка-->
+                            <a href="#" class="app__slider-item" data-app_item>
+                                <img src="{% static '/slider_test_imgs/1920.png' %}" alt="error">
+                            </a>
+                            <!--                            //Картинка-->
 
-<!--                            </div>-->
-<!--                            <div class="app__slider-item">-->
-<!--                                &lt;!&ndash;                                <img src="#" alt="error">&ndash;&gt;-->
-<!--                                3-->
-
-<!--                            </div>-->
-<!--                            <div class="app__slider-item">-->
-<!--                                &lt;!&ndash;                                <img src="#" alt="error">&ndash;&gt;-->
-<!--                                4-->
-
-<!--                            </div>-->
-
-<!--                            <div class="app__slider-item">-->
-<!--                                &lt;!&ndash;                                <img src="#" alt="error">&ndash;&gt;-->
-<!--                                5-->
-
-<!--                            </div>-->
-
-<!--                            <div class="app__slider-item">-->
-<!--                                &lt;!&ndash;                                <img src="#" alt="error">&ndash;&gt;-->
-<!--                                6-->
-
-<!--                            </div>-->
-<!--                        </div>-->
+                            <a href="#" class="app__slider-item" data-app_item>
+                                <img src="{% static '/slider_test_imgs/1080x1080.png' %}" alt="error">
+                            </a>
+                            <a href="#" class="app__slider-item" data-app_item>
+                                <img src="{% static '/slider_test_imgs/400.png' %}" alt="error">
+                            </a>
+                            <a href="#" class="app__slider-item" data-app_item>
+                                <img src="{% static '/slider_test_imgs/1200x300.png' %}" alt="error">
+                            </a>
+                            <a href="#" class="app__slider-item" data-app_item>
+                                <img src="{% static '/slider_test_imgs/1980x800.png' %}" alt="error">
+                            </a>
+                            <a href="#" class="app__slider-item" data-app_item>
+                                <img src="{% static '/slider_test_imgs/1080x1080.png' %}" alt="error">
+                            </a>
+                            <a href="#" class="app__slider-item" data-app_item>
+                                <img src="{% static '/slider_test_imgs/1080x1080.png' %}" alt="error">
+                            </a>
+                            <a href="#" class="app__slider-item" data-app_item>
+                                <img src="{% static '/slider_test_imgs/60.png' %}" alt="error">
+                            </a>
+                        </div>
                     </div>
 
                     <div class="specs">
@@ -160,4 +157,5 @@
 </div>
 
 
+<script src='{% static "js/minimized/main_script.min.js" %}'></script>
 {% endblock %}

@@ -15792,6 +15792,7 @@ footer {
   -webkit-box-shadow: 0px 0px 20px black;
           box-shadow: 0px 0px 20px black;
   margin: 0 auto;
+  position: relative;
 }
 
 .app__title {
@@ -15835,44 +15836,72 @@ footer {
 
 .app__slider {
   margin-bottom: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+.app__slider:before {
+  content: '';
+  display: block;
+  width: 72px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  background: -webkit-gradient(linear, left top, right top, from(#343434), color-stop(87.5%, rgba(196, 196, 196, 0)));
+  background: -o-linear-gradient(left, #343434 0%, rgba(196, 196, 196, 0) 87.5%);
+  background: linear-gradient(90deg, #343434 0%, rgba(196, 196, 196, 0) 87.5%);
+  z-index: 1;
+}
+
+.app__slider:after {
+  content: '';
+  display: block;
+  width: 72px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: -webkit-gradient(linear, left top, right top, from(#343434), color-stop(87.5%, rgba(196, 196, 196, 0)));
+  background: -o-linear-gradient(left, #343434 0%, rgba(196, 196, 196, 0) 87.5%);
+  background: linear-gradient(90deg, #343434 0%, rgba(196, 196, 196, 0) 87.5%);
+  -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
+      -ms-transform: matrix(-1, 0, 0, 1, 0, 0);
+          transform: matrix(-1, 0, 0, 1, 0, 0);
+  z-index: 1;
+}
+
+.app__slider-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  position: relative;
 }
 
 .app__slider-item {
   display: block;
-  background: #007bff;
+  -ms-flex-item-align: stretch;
+      -ms-grid-row-align: stretch;
+      align-self: stretch;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   height: 150px;
   overflow: hidden;
-  border-right: 2px solid #ffffff;
   color: #ffffff;
-}
-
-.app__slider-item:nth-child(1) {
-  width: 300px;
-}
-
-.app__slider-item:nth-child(2) {
-  width: 100px;
-}
-
-.app__slider-item:nth-child(3) {
-  width: 50px;
-}
-
-.app__slider-item:nth-child(4) {
-  width: 400px;
-}
-
-.app__slider-item:nth-child(5) {
-  width: 250px;
-}
-
-.app__slider-item:nth-child(6) {
-  width: 50px;
 }
 
 .app__slider-item img {
   display: block;
-  max-height: 150px;
+  height: 100%;
+  min-width: auto;
+}
+
+.app__slider-item:not(:first-child) {
+  padding-left: 10px;
 }
 
 .app__btn {

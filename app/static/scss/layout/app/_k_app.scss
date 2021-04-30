@@ -4,6 +4,7 @@
   background-color: $main_color_liter-dark;
   box-shadow: $mid_shadow;
   margin: 0 auto;
+  position: relative; // needed for slider JS!
 
   &__title {
     @include typical_flex;
@@ -40,48 +41,56 @@
 
   &__slider {
     margin-bottom: 15px;
-    //overflow: hidden;
+    overflow: hidden;
+    position: relative;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 72px;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      bottom: 0px;
+      background: linear-gradient(90deg, #343434 0%, rgba(196, 196, 196, 0) 87.5%);
+      z-index: 1;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      width: 72px;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      background: linear-gradient(90deg, #343434 0%, rgba(196, 196, 196, 0) 87.5%);
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+      z-index: 1;
+    }
+
     &-wrapper {
-      //display: flex;
-      //flex-flow: row nowrap;
+      display: flex;
+      flex-flow: row nowrap;
+      position: relative;
     }
 
     &-item {
       display: block;
-      background: $main_color;
-
-      //flex:0 0 300px;
+      align-self: stretch;
+      flex-shrink: 0;
       height: 150px;
       overflow: hidden;
-      border-right: 2px solid $main_color_white;
       color: $main_color_white;
-      &:nth-child(1){
-        width:300px;
-        //float:left;
-      }
-      &:nth-child(2){
-        width:100px;
-        //float:left;
-      }
-      &:nth-child(3){
-        width:50px;
-        //float:left;
-      }
-      &:nth-child(4){
-        width:400px;
-        //float:left;
-      }
-      &:nth-child(5){
-        width:250px;
-        //float:left;
-      }
-      &:nth-child(6){
-        width:50px;
-        //float:left;
-      }
-      img{
+
+      img {
         display: block;
-        max-height: 150px;
+        height: 100%;
+        min-width: auto;
+      }
+
+      &:not(:first-child) {
+        padding-left: 10px;
       }
     }
 
@@ -144,3 +153,28 @@
   //  border:2px solid red;
   //}
 }
+
+//&:nth-child(1){
+//  min-width:300px;
+//  //float:left;
+//}
+//&:nth-child(2){
+//  min-width:100px;
+//  //float:left;
+//}
+//&:nth-child(3){
+//  min-width:50px;
+//  //float:left;
+//}
+//&:nth-child(4){
+//  min-width:400px;
+//  //float:left;
+//}
+//&:nth-child(5){
+//  min-width:250px;
+//  //float:left;
+//}
+//&:nth-child(6){
+//  min-width:50px;
+//  //float:left;
+//}
