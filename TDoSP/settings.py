@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+	# 'grappelli',
     'library',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -119,5 +120,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "app/static"),
 ]
 
-MEDIA_URL = 'storage/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'storage/')
+MEDIA_URL = '/storage/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'storage')

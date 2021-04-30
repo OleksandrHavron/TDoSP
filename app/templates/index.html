@@ -13,7 +13,9 @@
     <header>
         {% block header %}
             <div class="header content">
-                <div class="header__logo">Logo</div>
+                <div class="header__logo">
+                    <img src="{% static '/logo_img/logo.png' %}" alt="error">
+                </div>
                 <div class="header__wrapper">
                     
                         <a href="{% url 'home_page' %}" 
@@ -33,10 +35,9 @@
                         <a href="/admin">Admin</a>
                     {% endif %}
                 </div>
-            </div>
+        </div>
         {% endblock %}
     </header>
-
 
 
     <main>
@@ -48,13 +49,12 @@
 
     <footer>
         {% block footer %}
-            <div class="footer content">
-                <p class="footer__text"><small>Copyright 2021</small></p>
-            </div>
+        <div class="footer content">
+            <p class="footer__text"><small>Copyright 2021</small></p>
+        </div>
         {% endblock %}
     </footer>
 </div>
 
-<script src='{% static "js/minimized/main_script.min.js" %}'></script>
 </body>
 </html>

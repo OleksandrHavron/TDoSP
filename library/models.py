@@ -1,12 +1,30 @@
 from django.db import models
 from django.urls import reverse
 
+import xml.etree.cElementTree as et
+
+
+def is_svg(f):
+    """
+    Check if provided file is svg
+    """
+    f.seek(0)
+    tag = None
+    try:
+        for event, el in et.iterparse(f, ('start',)):
+            tag = el.tag
+            break
+    except et.ParseError:
+        pass
+    return tag == '{http://www.w3.org/2000/svg}svg'
+
 
 class Category(models.Model):
     name = models.CharField(max_length=55)
     description = models.TextField()
-    image = models.ImageField(upload_to='categories', blank=True)
-    slug = models.SlugField(verbose_name='slug', max_length=50, unique=True, blank=False)
+    image = models.ImageField(upload_to='categories/images', blank=True)
+    slug = models.SlugField(verbose_name='slug', max_length=50, unique=True)
+    svg_icon = models.FileField(upload_to='categories/svg_icons')
 
     class Meta:
         verbose_name = 'Категорія'
@@ -18,13 +36,18 @@ class Category(models.Model):
     def get_all_subcategories(self):
         return SubCategory.objects.filter(category=self.pk)
 
+    def get_svg_icon(self):
+        with open(self.svg_icon.path) as svg_file:
+            return svg_file.read()
+
 
 class SubCategory(models.Model):
     name = models.CharField(max_length=55)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='subcategories')
     description = models.TextField()
-    image = models.ImageField(upload_to='apps/', blank=True)
-    slug = models.SlugField(verbose_name='slug', max_length=50, unique=True, blank=False)
+    image = models.ImageField(upload_to='subcategories/images/', blank=True)
+    slug = models.SlugField(verbose_name='slug', max_length=50, unique=True)
+    svg_icon = models.FileField(upload_to='subcategories/svg_icons')
 
     class Meta:
         verbose_name = 'Підкатегорія'
@@ -37,6 +60,10 @@ class SubCategory(models.Model):
         apps = App.objects.filter(subcategory=self.pk)
         return apps
 
+    def get_svg_icon(self):
+        with open(self.svg_icon.path) as svg_file:
+            return svg_file.read()
+
     def __str__(self):
         return self.name
 
@@ -45,9 +72,9 @@ class App(models.Model):
     name = models.CharField(max_length=55)
     description = models.TextField()
     subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE, related_name='apps')
-    file = models.FileField(upload_to='apps/files', default=None, blank=True)
+    file = models.FileField(upload_to='apps/files')
     image = models.ImageField(upload_to='apps/images', blank=True)
-    slug = models.SlugField(verbose_name='slug', max_length=50, unique=True, blank=False)
+    slug = models.SlugField(verbose_name='slug', max_length=50, unique=True)
 
     class Meta:
         verbose_name = 'Додаток'
