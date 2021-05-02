@@ -20,3 +20,7 @@ def get_selected_app(slug_app):
 
 def get_app_by_slug(slug):
     return App.objects.get(slug=slug)
+
+
+def get_subcategory_by_slug(slug):
+    return SubCategory.objects.get(slug=slug)

@@ -1,6 +1,7 @@
 {% load static %}
 <a href="{{ app.get_absolute_url }}">
-{{ app.name }}<br>                                                              {# Назва програми #}
+	{{ app.name }}<br>                                                              {# Назва програми #}
+
 {{ app.subcategory }}<br>                                                       {# Категорія #}
 {{ app.description }}<br>                                                       {# Описання програми #}
 {% if app.image %}

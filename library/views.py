@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .services import get_all_apps, get_all_categories, get_apps_by_subcategory, \
-    get_app_by_slug
+        get_app_by_slug, get_subcategory_by_slug
 
 
 def home_page(request):
@@ -17,9 +17,11 @@ def category_list(request):
 
 def app_list_by_subcategory(request, subcategory_slug):
     apps = get_apps_by_subcategory(subcategory_slug)
+    subcategory = get_subcategory_by_slug(subcategory_slug)
 
     return render(request, 'app_list.html', {
             'apps': apps,
+            'subcategory': subcategory,
         })
 
 

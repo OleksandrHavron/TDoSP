@@ -5,12 +5,6 @@
 {% endblock %}
 {% block content %}
 
-{{ app.name }}
-{{ app.subcategory }}
-<!--    <img src="{% if app.image %}{{ app.image.url }}{% else %}{{ {% static 'img/no_image.png' %}{% endif %}" width="100" height="70" alt="Image"><br>-->
-{{ app.description }}
-{{ app.file }}
-
 <div class="container">
     <div class="row">
         <div class="col">
@@ -18,82 +12,41 @@
                 <div class="app">
                     <div class="app__title">
                         <div class="app__logo">
-                            <img src="{% static '/companies_logo/outpost_security_suite_free_icon.png' %}" alt="error">
+				<img src="{% if app.image %}{{ app.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="error">
                         </div>
                         <div class="app__title-text">
-                            <h1>Outpost Security Suite Free</h1>
+				<h1>{{ app.name }}</h1>
                         </div>
                     </div>
 
                     <div class="app__description">
                         <p>
-                            Outpost Security Suite Free — безкоштовний пакет для комплексного захисту комп’ютера від
-                            загроз, які можуть виходити з локальної мережі та Інтернету. Включає в себе фаєрвол,
-                            антивірус з проактивним захистом, антишпигун і антиспам. Крім того, на відміну від інших
-                            проактивних рішень, які лише захищають від зараження, Outpost Free справляється і з
-                            усуненням наслідків дій шкідливих програм.
-
-                            Незалежно від рівня вашої підготовки, Outpost Security Suite Free задовольнить ваші потреби
-                            в захисті, автоматично оновлюючи як антивірусні бази, так і політики роботи з новими
-                            програмами з системи Agnitum ImproveNet. Ця унікальна система автоматично настроює і
-                            застосовує правила, які керують доступом ПК в Інтернет на основі розроблених у Agnitum
-                            безпечних правил роботи в Мережі.
-                        </p>
+                        	{{ app.description }}
+			</p>
                     </div>
 
                     <div class="app__slider" id="app_slider">
                         <div class="app__slider-wrapper " id="app_wrapper">
                             <!--                            Картинка-->
-                            <a href="#" class="app__slider-item" data-app_item>
-                                <img src="{% static '/slider_test_imgs/1920.png' %}" alt="error">
-                            </a>
-                            <!--                            //Картинка-->
-
-                            <a href="#" class="app__slider-item" data-app_item>
-                                <img src="{% static '/slider_test_imgs/1080x1080.png' %}" alt="error">
-                            </a>
-                            <a href="#" class="app__slider-item" data-app_item>
-                                <img src="{% static '/slider_test_imgs/400.png' %}" alt="error">
-                            </a>
-                            <a href="#" class="app__slider-item" data-app_item>
-                                <img src="{% static '/slider_test_imgs/1200x300.png' %}" alt="error">
-                            </a>
-                            <a href="#" class="app__slider-item" data-app_item>
-                                <img src="{% static '/slider_test_imgs/1980x800.png' %}" alt="error">
-                            </a>
-                            <a href="#" class="app__slider-item" data-app_item>
-                                <img src="{% static '/slider_test_imgs/1080x1080.png' %}" alt="error">
-                            </a>
-                            <a href="#" class="app__slider-item" data-app_item>
-                                <img src="{% static '/slider_test_imgs/1080x1080.png' %}" alt="error">
-                            </a>
-                            <a href="#" class="app__slider-item" data-app_item>
-                                <img src="{% static '/slider_test_imgs/60.png' %}" alt="error">
-                            </a>
+			    {% for image in app.get_images %}
+			    <a href="{{ image.image.url }}" class="app__slider-item" data-app_item>
+				    <img src="{{ image.image.url }}" alt="error">
+                            	</a>
+			    {% endfor %}
                         </div>
                     </div>
 
                     <div class="specs">
                         <div class="specs__title">
                             <h5>
-                                Основні характеристики Outpost Security Suite Free:
+				    Основні характеристики {{ app.name }}:
                             </h5>
                         </div>
                         <div class="specs__text">
                             <p>
-                                — Фільтрація вхідних і вихідних мережевих з’єднань.<br>
-                                — Глобальні правила для протоколів і портів.<br>
-                                — Створення правил мережевого доступу для відомих додатків на основі попередніх
-                                установок.<br>
-                                — П’ять політик роботи Outpost: від повного дозволу мережевої активності до повного
-                                блокування (Дозволяти все/Режим дозволу/Режим навчання/Режим блокування/Блокувати
-                                все).<br>
-                                — Потужний компонент проактивного захисту — Anti-Leak.<br>
-                                — Наочне відображення мережевої активності.<br>
-                                — Журнал дій програми.<br>
-                                — Внутрішній захист (наприклад, від спроб зупинити сервіс).<br>
-                                — Хмарний сервіс, що збирає інформацію про локальну взаємодію додатків на
-                                комп’ютері.<br>
+			    {% for prop in app.get_props %}
+			    	— {{ prop.prop }}<br>
+			    {% endfor %}
                             </p>
                         </div>
                     </div>
@@ -110,8 +63,8 @@
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="table-specs__item">
-                                        Agnitum Ltd.
-                                    </div>
+                                   	{{ app.developer }}
+				    </div>
                                 </div>
                             </div>
 
@@ -123,7 +76,7 @@
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="table-specs__item">
-                                        XP, Vista, 7
+					{{ app.windows }}
                                     </div>
                                 </div>
                             </div>
@@ -136,7 +89,7 @@
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="table-specs__item">
-                                        English
+					{{ app.language }}
                                     </div>
                                 </div>
                             </div>

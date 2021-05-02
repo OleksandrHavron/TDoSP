@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django import forms
 
-from .models import Category, SubCategory, App
+from .models import Category, SubCategory, App, Prop, Image
 
 import re
 
@@ -10,6 +10,16 @@ class CategoryForm(forms.ModelForm):
     class Meta:
         model = Category
         exclude = []
+
+
+class PropInline(admin.TabularInline):
+    model = Prop
+    extra = 1
+
+
+class ImageInline(admin.TabularInline):
+    model = Image
+    extra = 1
 
 
 @admin.register(Category)
@@ -34,6 +44,10 @@ class SubCategoryAdmin(admin.ModelAdmin):
 @admin.register(App)
 class AppAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
+    inlines = [
+            PropInline,
+            ImageInline,
+    ]
 
 
 # def handle_uploaded_file(f):

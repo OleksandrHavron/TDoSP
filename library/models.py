@@ -69,12 +69,16 @@ class SubCategory(models.Model):
 
 
 class App(models.Model):
-    name = models.CharField(max_length=55)
-    description = models.TextField()
-    subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE, related_name='apps')
-    file = models.FileField(upload_to='apps/files')
-    image = models.ImageField(upload_to='apps/images', blank=True)
+    name = models.CharField('Назва', max_length=55)
     slug = models.SlugField(verbose_name='slug', max_length=50, unique=True)
+    description = models.TextField('Опис')
+    subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE, related_name='apps')
+    file = models.FileField('Файл', upload_to='apps/files')
+    image = models.ImageField('Лого', upload_to='apps/images', blank=True)
+    update = models.DateTimeField(auto_now=True)
+    developer = models.CharField('Розробник', max_length=55, blank=True)
+    windows = models.CharField('Версія Windows', max_length=200, blank=True)
+    language = models.CharField('Мова', max_length=200, blank=True)
 
     class Meta:
         verbose_name = 'Додаток'
@@ -85,3 +89,27 @@ class App(models.Model):
 
     def get_absolute_url(self):
         return f'/app/{self.slug}'
+
+    def get_props(self):
+        return Prop.objects.filter(app=self)
+
+    def get_images(self):
+        return Image.objects.filter(app=self)
+
+
+class Prop(models.Model):
+    prop = models.TextField('Характеристика')
+    app = models.ForeignKey(App, on_delete=models.CASCADE, related_name='props')
+    
+    class Meta:
+        verbose_name = 'Характеристика'
+        verbose_name_plural = 'Характеристики'
+
+
+class Image(models.Model):
+    image = models.ImageField('Зображення', upload_to='apps/images')
+    app = models.ForeignKey(App, on_delete=models.CASCADE, related_name='images')
+
+    class Meta:
+        verbose_name = 'Зображення'
+        verbose_name_plural = 'Зображення'
