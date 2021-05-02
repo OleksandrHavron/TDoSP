@@ -1,13 +1,15 @@
 from django.db import models
 from django.urls import reverse
+from django.core.exceptions import ValidationError
+
 
 import xml.etree.cElementTree as et
 
+def validate_svg(file):
+    if not is_svg(file):
+        raise ValidationError("File not svg")
 
 def is_svg(f):
-    """
-    Check if provided file is svg
-    """
     f.seek(0)
     tag = None
     try:
@@ -24,7 +26,7 @@ class Category(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='categories/images', blank=True)
     slug = models.SlugField(verbose_name='slug', max_length=50, unique=True)
-    svg_icon = models.FileField(upload_to='categories/svg_icons', blank=True)
+    svg_icon = models.FileField(upload_to='categories/svg_icons', blank=True, validators=[validate_svg])
 
     class Meta:
         verbose_name = 'Категорія'
@@ -47,7 +49,7 @@ class SubCategory(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='subcategories/images/', blank=True)
     slug = models.SlugField(verbose_name='slug', max_length=50, unique=True)
-    svg_icon = models.FileField(upload_to='subcategories/svg_icons', blank =True)
+    svg_icon = models.FileField(upload_to='subcategories/svg_icons', blank =True, validators=[validate_svg])
 
     class Meta:
         verbose_name = 'Підкатегорія'
