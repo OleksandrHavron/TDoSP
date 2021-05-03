@@ -28,7 +28,8 @@ class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
 
     def save_model(self, request, obj, form, change):
-        if (len(request.FILES) != 0):
+        svg_icon = request.FILES['svg_icon']
+        if svg_icon:
             handle_uploaded_file(request.FILES['svg_icon'])
         super().save_model(request, obj, form, change)
 
@@ -38,7 +39,8 @@ class SubCategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
 
     def save_model(self, request, obj, form, change):
-        if (len(request.FILES) != 0):
+        print(request.FILES['svg_icon'])
+        if request.FILES['svg_icon']:
             handle_uploaded_file(request.FILES['svg_icon'])
         super().save_model(request, obj, form, change)
 

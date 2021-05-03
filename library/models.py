@@ -2,12 +2,13 @@ from django.db import models
 from django.urls import reverse
 from django.core.exceptions import ValidationError
 
-
 import xml.etree.cElementTree as et
+
 
 def validate_svg(file):
     if not is_svg(file):
         raise ValidationError("File not svg")
+
 
 def is_svg(f):
     f.seek(0)
