@@ -3,10 +3,11 @@ from django.urls import reverse
 from django.core.exceptions import ValidationError
 
 import xml.etree.cElementTree as et
+import mimetypes
 
 
 def validate_svg(file):
-    if not is_svg(file):
+    if mimetypes.guess_type(file.url)[0] != 'image/svg+xml':
         raise ValidationError("File not svg")
 
 
