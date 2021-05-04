@@ -2,25 +2,14 @@ from django.db import models
 from django.urls import reverse
 from django.core.exceptions import ValidationError
 
-import xml.etree.cElementTree as et
 import mimetypes
 
 
 def validate_svg(file):
     if mimetypes.guess_type(file.url)[0] != 'image/svg+xml':
-        raise ValidationError("File not svg")
-
-
-def is_svg(f):
-    f.seek(0)
-    tag = None
-    try:
-        for event, el in et.iterparse(f, ('start',)):
-            tag = el.tag
-            break
-    except et.ParseError:
-        pass
-    return tag == '{http://www.w3.org/2000/svg}svg'
+        raise ValidationError("Завантажте правильний файл. Файл, який ви завантажили,"
+                              ""
+                              " не є формату .svg, або є зіпсованим файлом.")
 
 
 class Category(models.Model):
@@ -51,7 +40,7 @@ class SubCategory(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='subcategories/images/', blank=True)
     slug = models.SlugField(verbose_name='slug', max_length=50, unique=True)
-    svg_icon = models.FileField(upload_to='subcategories/svg_icons', blank =True, validators=[validate_svg])
+    svg_icon = models.FileField(upload_to='subcategories/svg_icons', blank=True, validators=[validate_svg])
 
     class Meta:
         verbose_name = 'Підкатегорія'

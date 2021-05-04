@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='category',
             name='svg_icon',
-            field=models.FileField(blank=True, upload_to='categories/svg_icons', validators=[library.models.is_svg]),
+            field=models.FileField(blank=True, upload_to='categories/svg_icons'),
         ),
     ]
