@@ -1,10 +1,65 @@
 {% extends "index.html" %}
 {% load static %}
 {% block title %}
-    App list
+App list
 {% endblock %}
 
 {% block content %}
-    {% include "app.html" %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="content-wrapper">
+                <div class="app-list">
+                    <div class="app-list__title">
+                        <div class="app-list__wrapper">
+                            <div class="app-list__logo">
+				{% if subcategory.svg_icon %}
+				{% autoescape off %}
+				    {{ subcategory.get_svg_icon }}
+			   	{% endautoescape %}
+				{% endif %}
+			    </div>
+                            <div class="app-list__title-text">
+				    <h1>{{ subcategory.name }}</h1>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="app-list__description">
+                        <p>
+				{{ subcategory.description }}
+                        </p>
+                    </div>
+
+                    <div class="app-list__list-wrapper">
+
+			{% for app in apps %}
+
+
+
+                        <!--                        Програма-->
+                        <div class="app-list__item">
+                            <div class="app-list__left">
+				    <img src="{% if app.image %}{{ app.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}"
+                                     alt="error"
+                                     class="app-list__comp-logo">
+                            </div>
+                            <div class="app-list__right">
+				    <a href="{{ app.get_absolute_url }}" class="app-list__link-toApp">{{ app.name }}</a>
+                                <p class="app-list__short-text">
+					{{ app.description|truncatechars:91 }}
+				</p>
+				<span class="app-list__data">{{ app.update|date:"Y.m.d" }}</span>
+                            </div>
+                        </div>
+
+
+			{% endfor %}
+                        <!--                        //Програма-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

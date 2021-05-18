@@ -1,8 +1,114 @@
 {% extends "index.html" %}
 {% load static %}
 {% block title %}
-    App page
+{{ app.name }}
 {% endblock %}
-
 {% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="content-wrapper">
+                <div class="app">
+                    <div class="app__title">
+                        <div class="app__logo">
+				<img src="{% if app.image %}{{ app.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="error">
+                        </div>
+                        <div class="app__title-text">
+				<h1>{{ app.name }}</h1>
+                        </div>
+                    </div>
+
+                    <div class="app__description">
+                        <p>
+                        	{{ app.description }}
+			</p>
+                    </div>
+
+                    <div class="app__slider" id="app_slider">
+                        <div class="app__slider-wrapper " id="app_wrapper">
+                            <!--                            Картинка-->
+			    {% for image in app.get_images %}
+			    <a href="{{ image.image.url }}" class="app__slider-item" data-app_item>
+				    <img src="{{ image.image.url }}" alt="error">
+                            	</a>
+			    {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="specs">
+                        <div class="specs__title">
+                            <h5>
+				    Основні характеристики {{ app.name }}:
+                            </h5>
+                        </div>
+                        <div class="specs__text">
+                            <p>
+			    {% for prop in app.get_props %}
+			    	— {{ prop.prop }}<br>
+			    {% endfor %}
+                            </p>
+                        </div>
+                    </div>
+
+                    <!--                    Таблиця-->
+                    <div class="container-fluid">
+                        <div class="table-specs">
+                            <!--                            Рядок таблички - це div з класом row//-->
+                            <div class="row">
+                                <div class="col-12 col-sm-6">
+                                    <div class="table-specs__item">
+                                        Автор:
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="table-specs__item">
+                                   	{{ app.developer }}
+				    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12 col-sm-6">
+                                    <div class="table-specs__item">
+                                        Версія Windows:
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="table-specs__item">
+					{{ app.windows }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12 col-sm-6">
+                                    <div class="table-specs__item">
+                                        Мова:
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="table-specs__item">
+					{{ app.language }}
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--                    //Таблиця-->
+
+                    <div class="app__btn">
+                        {% if app.file %}
+                            <a href="{{ app.file.url }}" class="app__btn-button" download>Завантажити</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src='{% static "js/minimized/main_script.min.js" %}'></script>
 {% endblock %}

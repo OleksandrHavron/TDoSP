@@ -1,0 +1,50 @@
+//properties for development
+.bs {
+  border: 1px solid red;
+}
+
+.bs-g {
+  border: 1px solid green;
+}
+
+.bs-b {
+  border: 1px solid blue;
+}
+
+.bs-y {
+  border: 1px solid yellow;
+}
+
+.bs-br {
+  border: 1px solid saddlebrown;
+}
+
+.bs-bold {
+  border: 3px solid black;
+}
+
+//main general properties
+html, body {
+  width: 100%;
+  height: 100%;
+  background: $main_color_dark;
+}
+
+.page {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  height: 100%;
+}
+
+main {
+  display: block;
+  //@include typical_flex;
+}
+
+.content {
+  padding: 0 10px 0 10px;
+}
+.content-wrapper {
+  margin: 30px 0px;
+}

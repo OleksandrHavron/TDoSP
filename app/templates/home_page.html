@@ -1,10 +1,31 @@
 {% extends "index.html" %}
 {% load static %}
 {% block title %}
-    Home page
+Home page
 {% endblock %}
 
 {% block content %}
-    {% include "category.html" %}
-    {% include "app.html" %}
+{% for app in apps %}
+
+{% include "category.html" %}
+{% endfor %}
+
+{% for app in apps %}
+
+{% include "app.html" %}
+{% endfor %}
+<!--<div class="">-->
+<div class="back-video">
+    <video src="{% static 'background_video/Working_on_a_MacBook.mp4' %}" class="back-video__media" autoplay
+           muted loop></video>
+
+    <div class="back-video__content">
+        <div class="back-video__title"><h1>Портал безкоштовних програм</h1></div>
+        <!--        <button type="button" class="btn btn-primary">Primary</button>-->
+        <a href="{% url 'categories'%}" class="btn btn-primary">Перейти...</a>
+    </div>
+
+
+</div>
+<!--</div>-->
 {% endblock %}
