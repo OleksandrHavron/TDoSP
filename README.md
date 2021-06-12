@@ -1,33 +1,18 @@
 # TDoSP
 
 ### Python
-    Версія Python == 3.9.1  
-
-[Посилання на завантаження](https://www.python.org/downloads/release/python-391/)  
-
-*При встановленні поставте галочку біля пункта 'Add Python 3.9.1 to PATH'.
-Для того, щоб ви могли запускати скрипти використовуючи слово "python",
-якщо не поставите прийдеться вказувать повний шлях до інтерпретатора.
+    Python == 3.9.1  
 
 ### Django
-    Версія Django == 3.1.7
+    Django == 3.1.7
 
-###### Встановлення:
-В командній строці Windows виконати команду:  
-    
+###### Installing Django:
     pip install Django==3.1.7
 
-###### Запуск сервера:
-В папці де знаходиться файл manage.py виконати команду:  
-    
+
+### Apply migrations
+    python manage.py migrate
+
+###### Run server:    
     python manage.py runserver
 
-якщо при встановленні не поставили галочку біля пункта Add Python 3.9.1 to PATH
-тоді замість 'python' вказується повний шлях до інтерпретатора Python:  
-
-    /шлях_до_папки_Python/python.exe manage.py runserver
-
-### БД
-
-    python manage.py makemigrations
-    python manage.py migrate
