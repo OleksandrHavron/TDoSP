@@ -122,3 +122,9 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/storage/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'storage')
+
+# Alow to import js modules
+
+if DEBUG:
+    import mimetypes
+    mimetypes.add_type("application/javascript", ".js", True)
